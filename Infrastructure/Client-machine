@@ -1,1 +1,89 @@
 windows11-join-domain.md
+
+Windows 11 Client Domain Join
+
+This document outlines the process of joining a Windows 11 client machine to the Active Directory domain within the enterprise sysadmin lab environment.
+
+🖥️ Client Machine Overview
+
+Machine Name: CLIENT01
+Operating System: Windows 11 Pro
+Network Type: DHCP enabled
+
+The client is connected to the internal lab network through Hyper-V.
+
+🌐 Network Prerequisites
+
+Before joining the domain, the following were verified:
+
+Client received IP address from DHCP
+
+DNS server pointed to DC01
+
+Network connectivity to Domain Controller confirmed
+
+Verification Command:
+ipconfig /all
+
+
+Confirmed valid IP address (not APIPA) and correct DNS configuration.
+
+🔗 Domain Join Process
+
+Steps performed:
+
+Opened System Settings
+
+Navigated to About → Domain or Workgroup
+
+Selected Join a domain
+
+Entered:
+
+lab.local
+
+
+Provided domain administrator credentials
+
+Restarted client machine
+
+✅ Post-Join Validation
+
+After reboot:
+
+Logged in using domain user account
+
+Confirmed computer object appeared in Active Directory
+
+Verified domain connectivity
+
+🛠 Troubleshooting Encountered
+Issue: Client initially received APIPA address (169.254.x.x)
+
+Cause: No DHCP/static configuration
+Fix: Configured proper DHCP/DNS settings
+
+Issue: Domain join failed initially
+
+Cause: DNS misconfiguration
+Fix: Pointed client DNS to DC01
+
+📸 Related Screenshots
+
+Located in:
+
+screenshots/
+
+🎯 Outcome
+
+CLIENT01 successfully joined the Active Directory domain and authenticated using domain credentials.
+
+🚀 Next Steps
+
+The client machine is now ready for:
+
+Group Policy enforcement
+
+File server access testing
+
+Enterprise management simulations
