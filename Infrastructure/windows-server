@@ -1,1 +1,116 @@
 DC01-setup.md
+Virtual Machine Creation 
+
+Hypervisor: Hyper-V
+VM Name: DC01
+Operating System: Windows Server
+
+Configuration:
+
+Generation 2 VM
+
+Adequate RAM and CPU assigned for lab usage
+
+Connected to internal virtual switch (Lab_Internal)
+
+Windows Server ISO mounted for installation
+
+📀 Windows Server Installation
+
+Steps performed:
+
+Booted VM using Windows Server ISO
+
+Installed Windows Server (Desktop Experience) 
+
+Completed initial setup and administrator account creation
+
+Logged into Windows Server desktop
+
+🌐 Network Configuration (Static IP)
+
+Domain Controllers require static IP addresses.
+
+Configured DC01 with:
+
+Static IPv4 address (same subnet as lab network)
+
+Subnet mask configured
+
+Preferred DNS set to itself (loopback or DC01 IP)
+
+Verification:
+ipconfig /all
+
+
+Confirmed static IP and DNS configuration.
+
+🏢 Active Directory Domain Services Installation
+
+Steps:
+
+Opened Server Manager
+
+Added Active Directory Domain Services role
+
+Promoted server to Domain Controller
+
+Created new forest:
+
+lab.local
+
+
+Completed reboot after promotion
+
+📡 DNS Configuration
+
+DNS installed automatically with AD DS.
+
+Confirmed:
+
+DNS service running
+
+DC01 listed as primary DNS server
+
+Domain name resolving correctly
+✅ Post-Setup Validation
+
+Verified:
+
+Domain Controller operational
+
+Active Directory Users and Computers accessible
+
+DNS service functioning
+
+Server reachable over network
+
+🧠 Notes & Best Practices
+
+Domain Controllers should always use static IP addressing
+
+DNS must point to the Domain Controller for domain joins
+
+Internal virtual switch isolates lab safely
+
+Always verify IP configuration before client joins
+
+📸 Related Screenshots
+
+Stored in:
+
+screenshots/
+
+✔ Outcome
+
+DC01 successfully deployed as the primary Domain Controller providing:
+
+Active Directory
+
+DNS services
+
+Foundation for DHCP and client authentication
+
+🎯 Result
+
+The core identity and network infrastructure for the enterprise lab is now operational.
